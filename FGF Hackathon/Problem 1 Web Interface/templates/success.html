@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #007bff;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Room Booking Success</h1>
+        <p>Room <strong>{{ available_room }}</strong> has been successfully booked for <strong>{{ attendee_name }}</strong>.</p>
+        <p>Booking Details:</p>
+        <ul>
+            <li><strong>Start Time:</strong> {{ start_datetime }}</li>
+            <li><strong>End Time:</strong> {{ end_datetime }}</li>
+        </ul>
+        <p>Thank you!</p>
+    </div>
+</body>
+</html>

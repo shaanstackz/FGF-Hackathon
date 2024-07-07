@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Categorization</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #000; /* Black text for better readability */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff; /* Blue header background */
+            color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .logo {
+            width: 70px; /* Increased size */
+            height: auto;
+            margin-right: 10px;
+        }
+        .site-description {
+            flex: 1;
+            font-size: 18px;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff; /* White container background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .category-info {
+            margin-bottom: 20px;
+        }
+        .category-info ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .category-info ul li {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+                <div class="site-description">
+                    <h1>FGF Internal Website</h1>
+                    <p>This website categorizes and saves your email based on these categories:</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="heading">
+                    <h2>FGF Internal Website</h2>
+                </div>
+                <div class="category-info">
+                    <ul>
+                        <li><strong>Urgent:</strong> Emails needing immediate attention.</li>
+                        <li><strong>Informational:</strong> Emails providing updates or reports.</li>
+                        <li><strong>Actionable:</strong> Emails requiring specific actions or responses.</li>
+                        <li><strong>Delegate:</strong> Emails to be forwarded or delegated to others.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/submit" method="post">
+                            <div class="form-group">
+                                <textarea class="form-control" name="email_content" rows="10" placeholder="Paste your email content here..."></textarea>
+                            </div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

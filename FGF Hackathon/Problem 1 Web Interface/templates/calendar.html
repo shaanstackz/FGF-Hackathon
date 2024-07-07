@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlook Calendar</title>
+</head>
+<body>
+    <h1>Outlook Calendar Appointments</h1>
+    
+    <ul>
+        {% for appointment in calendar_data %}
+        <li>
+            <strong>Subject:</strong> {{ appointment.subject }} <br>
+            <strong>Location:</strong> {{ appointment.location }} <br>
+            <strong>Start Time:</strong> {{ appointment.start_time }} <br>
+            <strong>End Time:</strong> {{ appointment.end_time }} <br>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

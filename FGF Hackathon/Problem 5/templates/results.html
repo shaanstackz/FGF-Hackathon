@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            color: #000; /* Black text for better readability */
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff; /* Blue header background */
+            color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo {
+            width: 50px; /* Reduced size */
+            height: auto;
+            margin-left: 20px;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #fff; /* White container background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0f0f0; /* Light gray result background */
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .lead {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+        }
+        .logo-result {
+            width: 70px; /* Adjust size of result logo */
+            height: auto;
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1>FGF Internal Website</h1>
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        </div>
+    </header>
+    <div class="container">
+        <div class="result">
+            <p class="lead">The email has been categorized as: <strong>{{ category }}</strong></p>
+            {% if category == 'Urgent' %}
+                <img src="{{ url_for('static', filename='urgent.png') }}" alt="Urgent" class="logo-result">
+            {% elif category == 'Informational' %}
+                <img src="{{ url_for('static', filename='informational.png') }}" alt="Informational" class="logo-result">
+            {% elif category == 'Actionable' %}
+                <img src="{{ url_for('static', filename='actionable.png') }}" alt="Actionable" class="logo-result">
+            {% elif category == 'Delegate' %}
+                <img src="{{ url_for('static', filename='delegate.png') }}" alt="Delegate" class="logo-result">
+            {% endif %}
+            <form action="/" method="get">
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Check Again</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
